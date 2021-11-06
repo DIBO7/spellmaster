@@ -13,13 +13,13 @@ The spellmaster project is a web project that reads document (of different, spec
 2. Python Decouple (A 'sample_env.env' file has been included in the project's root to help developers who aren't familiar with python decouple. All you have to do to get this project to run locally is create a similar file named ".env" with contents close to what is in "sample_env.env")
 
 
-**NOTE: The 'main' branch automatically deploys to heroku. SO be sure to always work within a new branch.**
+**NOTE: The 'main' branch automatically deploys to heroku. So be sure to always work within a new branch.**
 
 This web project is currently under development. 
 
 ### Files to work with includes:
-1. HTML files
-2. .txt files
-3. .doc(x) files
-3. .md files (parhaps)
-5. .pdf files (yes, thats right!)
+* HTML files
+* .txt files
+* .doc(x) files
+* .md files (parhaps)
+* .pdf files (yes, thats right!)

@@ -1,0 +1,1 @@
+web: gunicorn spellmaster.wsgi --log-file -
