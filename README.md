@@ -2,7 +2,7 @@
 
 The spellmaster project is a web project that reads document (of different, specific kinds) and webpages and reports quickly words that have been misspelled. It will also have the ability to rewrite (a downloadble copy) the file with the correct spelling. Project is hosted [here on heroku](https://theibrahim.herokuapp.com).
 
-##Languages
+## Languages
 1. Python
 2. Javascript
 3. HTML5
@@ -17,8 +17,9 @@ The spellmaster project is a web project that reads document (of different, spec
 
 This web project is currently under development. 
 
-##Files to work with includes
+## Files to work with includes
 1. HTML files
 2. .txt files
 3. .doc(x) files
 3. .md files (parhaps)
+5. .pdf files (yes, thats right!)
