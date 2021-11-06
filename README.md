@@ -8,16 +8,16 @@ The spellmaster project is a web project that reads document (of different, spec
 3. HTML5
 4. CSS3
 
-## Tools Used
+## FRAMEWORKS AND LIBRARIES
 1. Django
-2. 
+2. Python Decouple (A 'sample_env.env' file has been included in the project's root to help developers who aren't familiar with python decouple. All you have to do to get this project to run locally is create a similar file named ".env" with contents close to what is in "sample_env.env")
 
 
-**To use Spellmaster, go to ...**
+**NOTE: The 'main' branch automatically deploys to heroku. SO be sure to always work within a new branch.**
 
 This web project is currently under development. 
 
-## Files to work with includes
+### Files to work with includes:
 1. HTML files
 2. .txt files
 3. .doc(x) files
