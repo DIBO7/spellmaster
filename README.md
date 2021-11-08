@@ -9,10 +9,10 @@ The spell master project is an open source project (built with python and django
 4. CSS3
 
 ## FRAMEWORKS AND LIBRARIES (for local development)
-1. Django
-2. Python Decouple 
-	_(A `sample_env.env` file has been included in the project's root to help developers who aren't familiar with python decouple. All you have to do to get this project to run locally is create a similar file named `.env` with contents similar to what is in `sample_env.env`)_
-3. 
+* Django
+* Python Decouple 
+	* _(A `sample_env.env` file has been included in the project's root to help developers who aren't familiar with python decouple. All you have to do to get this project to run locally is create a similar file named `.env` with contents similar to what is in `sample_env.env`)_
+* 
 
 __NOTE: This project requires no database. So ignore all django's message regarding database migrations__
 
@@ -24,5 +24,8 @@ __NOTE: This project requires no database. So ignore all django's message regard
 * .pdf files (yes, thats right!)
 
 **NOTE: The 'main' branch automatically deploys to heroku. So developing within a new/another branch is adviced.**
+
+---
+Here is the mockup of the main page (open to changes though!)
 
 ![SpellMaster Prototyped Main Page](/screen.png)
