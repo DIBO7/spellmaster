@@ -2,22 +2,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv='content-language' content='en-gb'>
+    <meta name="description" content="Online spellchecker for documents and webpages, can also rewrite documents with the right spelling" />
+    <meta name="keywords" content="online spell checker, correct spelling in documents and webpages, document spell corrector, rewrite document with correct spellings" />
+    <meta name="author" content="Ibrahim B. Oduola (github)" />
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/root.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/generic.css' %}">
-	<title>SpellMaster</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<title>The SpellMaster Project</title>
 </head>
 <body>
-	<header><h1>PROJECT SPELLMASTER</h1></header>
+	<header><h1>THE SPELLMASTER</h1></header>
 
-	<section>
-		<div> <!--Not sure if I should use a div wrapper-->
+	<section class="content">
+		<div class="board container"> <!--Not sure if I should use a div wrapper-->
 			<p>
-				The 'spellmaster' is an open-source python project developed to read documents of various kinds (including webpages) and and point out all mispelled words. It also has the ability to rewrite the exact document (in a downloadable copy) but with the right spelling after reading it.
+				The 'spellmaster' project is an open-source python project developed to read documents of various kinds (including webpages and pdfs) to check for and point out all mispelled words. It also will have the ability to rewrite the exact document (in a downloadable copy) but with the right spelling after reading it.
 			</p>
 		</div>
 
 
-		<section>
+		<section class="house container">
 			<div class="panel-of-controls">
 				<div>
 					<h3>Source</h3>					

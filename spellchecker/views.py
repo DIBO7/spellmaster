@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def MainPageViews(request):
-	return render(request, "sample.html", {})
+	return render(request, "mainpage.html", {})
