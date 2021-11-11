@@ -1,12 +1,4 @@
 :root {
-  /*--plain: #fffffe;
-  --headline-stroke: #272343; /*button text also
-  --paragraph: #2d334a;
-  --button-highlight: #ffd803;
-  --btn-text: #ffd500;
-  --secondary: #e3f6f5;
-  --tertiary: #bae8e8;
-  Where it all starts*/
   --background: #D8EEFE;
   --plain: #FFFFFE;
   --text: #516C7B;
@@ -25,6 +17,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: var(--background);
+  overflow-x: hidden;
 }
 
 
@@ -32,50 +25,8 @@ input, select, button{
   outline: none;
 }
 
-/*
-height: 190px;
-width: 725px;
-left: 358px;
-top: 250px;
-border-radius: 0px;
 
 
-header  Auto Layout 
+/*all these would go into generic.css or so*/
 
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 21px 537px;
--
-position: absolute;
-width: 1440px;
-height: 100px;
-left: 0px;
-top: 0px;
-----
-TEXT
-position: absolute;
-width: 1440px;
-height: 78px;
-left: 0px;
-top: 110px;
-
-font-family: Rubik;
-font-style: normal;
-font-weight: normal;
-font-size: 21px;
-line-height: 25px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.1em;
-
-
-
-
-
-----her it starts
-
-
-*/
+.point{cursor: pointer;}

@@ -12,26 +12,50 @@ header h1{
     font-size: clamp(1.3rem, 5vw, 2.1rem);
 }
 
-.content{
+span.label{font-size: .8rem; font-weight: 700; display: flex; justify-content: center; letter-spacing: .14rem; text-transform: uppercase; color: var(--dark-primary);}
 
+span{font-size: .9rem; letter-spacing: .12rem; text-transform: capitalize; color: var(--text);}
+
+span.active, span:hover{background-color: var(--dark-primary); color: var(--plain)}
+/*to prevent 'span.label' from having any hover effect */
+span.label:hover{background-color: var(--background); color: var(--dark-primary) !important;}
+
+.content{}
+
+.container{width: 100%;}
+
+.flexible{
+	display: flex;
+	justify-content: space-around;
 }
 
-.container{
-	
+.airpad{
+	padding: 10px 20px;
 }
 
 .board p{
 	padding: 0;
-	font-size: max(.8rem, 1.7vw);
+	font-size: max(.8rem, 1.5vw);
 	letter-spacing: .12rem;
-	line-height: max(1.2rem, 2.8vw);
+	line-height: max(1.2rem, 2.4vw);
 	text-align: center;
 	margin: 10px 0 50px;
 	color: var(--text);	
 }
 
-.house{
-	width: clamp(300px, 70vw, 90vw);
-	background-color: red;
+.main-body{
+	/*width: clamp(300px, 80vw, 96vw); /*the first width maybe less than 300px*/
+	width: max(300px, 75vw);
 	margin: 0 auto;
 }
+
+.panel{
+	background-color: red;
+}
+
+.span-choice{padding: 20px 15px 10px}
+
+.key-aspect{
+
+}
+
