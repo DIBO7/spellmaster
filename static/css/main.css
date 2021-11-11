@@ -27,6 +27,7 @@ span.label:hover{background-color: var(--background); color: var(--dark-primary)
 .flexible{
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .airpad{
