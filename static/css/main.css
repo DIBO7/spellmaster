@@ -71,6 +71,8 @@ span.label:hover{background-color: var(--background); color: var(--dark-primary)
 	min-width: 300px;
 	letter-spacing: .1rem;
 	font-size: .99rem;
+	border: 2px solid var(--dark-primary);
+	color: var(--dark-primary);
 }
 
 #report-wrapper{
@@ -82,3 +84,34 @@ span.label:hover{background-color: var(--background); color: var(--dark-primary)
 	overflow: scroll;
 }
 
+
+
+/*footer css*/
+footer{
+	margin: 50px 0 10px;
+	width: 100%;
+	padding: 0 10px;	
+}
+
+footer p{text-align: center; line-height: 1.9rem; color: var(--text); font-size: 1.1rem; letter-spacing: .12rem;}
+
+footer a{
+	color: var(--bright);
+	font-size: 1.2rem;
+	font-style: oblique;
+	margin: 5px 10px;	
+}
+
+footer a:hover{
+	color: var(--dark-primary);
+}
+
+footer div{
+	margin-bottom: 30px;
+}
+
+/*
+button.inactive{
+	color: var(--text);
+}
+*/
