@@ -56,3 +56,29 @@ span.label:hover{background-color: var(--background); color: var(--dark-primary)
 
 .key-aspect{padding: 10px 5px;}
 
+.window{}
+
+.window form{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 15px 0 30px;
+}
+
+.window form input{
+	width: calc(100% - 180px);
+	padding: 10px;
+	min-width: 300px;
+	letter-spacing: .1rem;
+	font-size: .99rem;
+}
+
+#report-wrapper{
+	width: 100%;
+	background-color: var(--plain);
+	margin: 10px 0 30px;
+	color: var(--text);
+	height: 400px;
+	overflow: scroll;
+}
+

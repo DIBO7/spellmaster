@@ -25,8 +25,26 @@ input, select, button{
   outline: none;
 }
 
+button{
+  background-color: var(--dark-primary);
+  color: var(--plain);
+  padding: 10px 20px;
+  cursor: pointer;
+  letter-spacing: .2rem;
+  font-size: 1rem;
+  margin: 5px 0;
+  border: 1px solid transparent;
+}
+
+button:hover{
+  background-color: transparent;
+  border: 1px solid var(--dark-primary);
+  color: var(--dark-primary);
+}
 
 
 /*all these would go into generic.css or so*/
 
 .point{cursor: pointer;}
+
+.centerer{text-align: center;}
