@@ -2,24 +2,110 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv='content-language' content='en-gb'>
+    <meta name="description" content="Online spellchecker for documents and webpages. It also rewrite documents with words correctly spelled." />
+    <meta name="keywords" content="online spell checker, correct spelling in documents and webpages, document spell corrector, rewrite document with correct spellings" />
+    <meta name="author" content="Ibrahim B. Oduola (github)" />
+
+    <link rel="icon" type="image/x-icon" href="{% static 'img/icon/spellcheck.ico' %}">
+    <meta property="og:meta" content="{% static 'img/spellcheck.png' %}">
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/root.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/generic.css' %}">
-	<title>SpellMaster</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<title>The SpellMaster Project: A Work In progress</title>
 </head>
 <body>
-	<header><h1>PROJECT SPELLMASTER</h1></header>
+	<header><h1>THE SPELLMASTER</h1></header>
 
-	<section>
-		<p>...Project is Ongoing...</p>
+	<section class="content">
+		<div class="board"> <!--Not sure if I should use a div wrapper-->
+			<p>
+				The 'spellmaster' project is an open-source python project developed to read documents of various kinds (including webpages and pdfs) to check for and point out all mispelled words. It also will have the ability to rewrite the exact document (in a downloadable copy) but with the right spelling after reading it. NOTE: IT IS CURRENTLY UNDER DEVELOPMENT!
+			</p>
+		</div>
+
+
+		<section class="main-body">
+			
+			<div class="flexible panel">
+				<div class="key-aspect">
+									
+					<span class="label">Source</span>					
+					
+					<div class="span-choice doc-wrapper flexible">
+						<div class="one-control active">
+							<!--<img src="" alt="" />-->
+							<span class="airpad active point">Document</span>
+						</div>
+
+						<div class="one-control">
+							<!--<img src="" alt="" />-->
+							<span class="airpad point">Webpage</span>
+						</div>
+
+					</div>
+					
+				</div>
+
+				<div class="key-aspect">
+					<span class="label">LANGUAGE</span>					
+					<div class="span-choice lang-wrapper flexible">
+						<div class="one-control">
+							<!--<img src="" alt="" />-->
+							<span class="airpad point">American</span>
+						</div>
+
+						<div class="one-control active">
+							<!--<img src="" alt="" />-->
+							<span class="airpad active point">British</span>
+						</div>
+
+					</div>
+					
+				</div>
+
+			</div>
+
+			<section class="window">
+				<div class="inserter">
+					<form>
+						<input type="file" name="filesrc" placeholder="no file selected" class="custom-file-input" />
+						<button type="submit" class="inactive">Browse</button>
+					</form>				
+				</div>
+
+				<div id="report-wrapper">
+					<!--All text coming/reporting back from the server goes in here-->
+					<span>...Project under development...</span>
+				</div>
+
+				<div class="centerer">
+					<button class="inactive">Rewrite file with words correctly spelled and download</button>
+				</div>
+
+			</section>
+
+			<footer>
+				<p>If you find spellmaster helpful, feel free to support us by:</p>
+
+				<div class="flexible">
+					<a href="">share with others</a>
+					<a href="https://github.com/TheIbrahim7/spellmaster">contribute to source code</a>
+					<!--<a href="">buy us a coffee</a> this would be allowed when necessary-->
+				</div>
+
+			</footer>
+
+
+
+		</section>
+
+
+
 	</section>
 
-	<div>
-		<p>
-			The spell master project is an open source project (built with python and django) to create a bot that quickly read through documents and webpages to find (and ofcourse, report) <strong>mispelled words</strong>. It will also have the capability to quicly rewrite (in a downloadable copy) the document (or webpage) with the right spelling.			
-		</p>
 
-		<a href="https://github.com/TheIbrahim7/spellmaster">Contribute to source code</a>
-
-	</div>
 </body>
 </html>
