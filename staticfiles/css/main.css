@@ -1,0 +1,126 @@
+header{
+    background: var(--plain);
+    text-align: center;
+    overflow: hidden;
+}
+
+header h1{
+    margin: 0;
+    color: var(--dark-primary);
+    padding: 10px 0 15px;
+    letter-spacing: clamp(.1rem, .8vw, .6rem);
+    font-size: clamp(1.3rem, 5vw, 2.1rem);
+}
+
+span.label{font-size: .8rem; font-weight: 700; display: flex; justify-content: center; letter-spacing: .14rem; text-transform: uppercase; color: var(--dark-primary);}
+
+span{font-size: .9rem; letter-spacing: .12rem; text-transform: capitalize; color: var(--text);}
+
+span.active, span:hover{background-color: var(--dark-primary); color: var(--plain)}
+/*to prevent 'span.label' from having any hover effect */
+span.label:hover{background-color: var(--background); color: var(--dark-primary) !important;}
+
+.content{}
+
+.container{width: 100%;}
+
+.flexible{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.airpad{
+	padding: 10px 20px;
+}
+
+.board p{
+	padding: 0;
+	font-size: max(.8rem, 1.5vw);
+	letter-spacing: .12rem;
+	line-height: max(1.2rem, 2.4vw);
+	text-align: center;
+	margin: 10px 0 50px;
+	color: var(--text);	
+}
+
+.main-body{
+	/*width: clamp(300px, 80vw, 96vw); /*the first width maybe less than 300px*/
+	width: max(300px, 75vw);
+	margin: 0 auto;
+}
+
+.panel{}
+
+.span-choice{padding: 20px 15px 10px;}
+
+.key-aspect{padding: 10px 5px;}
+
+.window{}
+
+.window form{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 15px 0 30px;
+}
+
+.window form input{
+	width: calc(100% - 180px);
+	padding: 10px;
+	min-width: 300px;
+	letter-spacing: .1rem;
+	font-size: .99rem;
+	border: 2px solid var(--dark-primary);
+	color: var(--dark-primary);
+}
+
+#report-wrapper{
+	width: 100%;
+	background-color: var(--plain);
+	margin: 10px 0 30px;
+	color: var(--text);
+	height: 400px;
+	overflow: scroll;
+	padding: 5px 10px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+	display: none;
+}
+
+.custom-file-input::before{
+	
+}
+
+
+
+/*footer css*/
+footer{
+	margin: 50px 0 10px;
+	width: 100%;
+	padding: 0 10px;	
+}
+
+footer p{text-align: center; line-height: 1.9rem; color: var(--text); font-size: 1.1rem; letter-spacing: .12rem;}
+
+footer a{
+	color: var(--bright);
+	font-size: 1.2rem;
+	font-style: oblique;
+	margin: 5px 10px;	
+}
+
+footer a:hover{
+	color: var(--dark-primary);
+}
+
+footer div{
+	margin-bottom: 30px;
+}
+
+/*
+button.inactive{
+	color: var(--text);
+}
+*/
