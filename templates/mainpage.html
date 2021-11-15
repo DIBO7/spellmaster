@@ -5,13 +5,18 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv='content-language' content='en-gb'>
-    <meta name="description" content="Online spellchecker for documents and webpages. It also rewrite documents with words correctly spelled." />
+    <meta name="description" property="og:description" content="Online spellchecker for documents and webpages. It also rewrite documents with words correctly spelled." />
     <meta name="keywords" content="online spell checker, correct spelling in documents and webpages, document spell corrector, rewrite document with correct spellings" />
     <meta name="author" content="Ibrahim B. Oduola (github)" />
+    <meta property="og:image" content="{% static 'img/spellchecker.png' %}" />
+    <meta property="og:image:alt" content="SpellMaster: an online spell checker and file rewriter">
+    <meta name="twitter:creator" content="@TheIbrahim_O" />
+    <meta name="twitter:image" content="{% static 'img/spellchecker.png' %}" />
+    <meta name="twitter:image:alt" content="SpellMaster: an online spell checker and file rewriter" />
+    <meta name="twitter:card" value="app" />
+    <meta name="twitter:description" content="SpellMaster: an online spell checker and file rewriter" />
 
     <link rel="icon" type="image/x-icon" href="{% static 'img/icon/spellcheck.ico' %}">
-    <meta property="og:meta" content="{% static 'img/spellcheck.png' %}">
-
 	<link rel="stylesheet" type="text/css" href="{% static 'css/root.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	<title>The SpellMaster Project: A Work In progress</title>
@@ -91,7 +96,7 @@
 				<p>If you find spellmaster helpful, feel free to support us by:</p>
 
 				<div class="flexible">
-					<a href="">share with others</a>
+					<a href="/">share with others</a>
 					<a href="https://github.com/TheIbrahim7/spellmaster">contribute to source code</a>
 					<!--<a href="">buy us a coffee</a> this would be allowed when necessary-->
 				</div>
