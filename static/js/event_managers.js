@@ -2,12 +2,24 @@ let fileForm = document.getElementsByTagName('form')[0] //which is the first and
 
 let fileInput = fileForm.getElementsByTagName('input')[0];
 
-fileInput.addEventListener("change", handleFile, false);
-
-
 let allowedFileType = [
 	"text/plain",
 ]
+
+let outputArea = document.getElementById('report-wrapper');
+
+fileInput.addEventListener("change", handleFile, false);
+
+
+const displayToUser = function(text){
+	let newline = document.createElement("BR")
+	let newSpan = document.createElement("SPAN");
+	newSpan.appendChild(document.createTextNode(text))
+
+	outputArea.appendChild(newline);
+	outputArea.appendChild(newSpan);
+}
+
 
 function handleFile(){
 	const docToRead = this.files
@@ -15,9 +27,16 @@ function handleFile(){
 	if (docToRead.length === 1 && allowedFileType.includes(docToRead[0].type)) {
 		submitButton = fileForm.getElementsByTagName('button')[0]
 		submitButton.classList.remove("inactive");
+		submitButton.disabled = false;
+
+		displayToUser(`${docToRead[0].name} is readable!, press "proceed" to continue`)
+
 	}else{
 		submitButton = fileForm.getElementsByTagName('button')[0]
 		submitButton.classList.add("inactive");
+		submitButton.disabled = true;
+
+		displayToUser(`${docToRead[0].name} is not supported at the moment! try a different file type!`)
 	}
 }
 
