@@ -44,13 +44,13 @@ button:hover{
   color: var(--dark-primary);
 }
 
-button.inactive{
-  background-color: transparent;
-  border: 2px solid var(--text);
-  color: var(--text);
-  cursor: not-allowed;
+.inactive{
+  background-color: transparent !important;
+  color: var(--text) !important;
+  cursor: not-allowed !important;
 }
 
+button.inactive{border: 2px solid var(--text) !important;}
 
 a{text-decoration: none;}
 
