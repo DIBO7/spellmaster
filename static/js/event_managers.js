@@ -1,6 +1,6 @@
 let fileForm = document.getElementsByTagName('form')[0] //which is the first and only (only atleast at the time of commenting)
 
-let fileInput = fileForm.getElementsByTagName('input')[0];
+let fileInput = fileForm.getElementsByTagName('input')[1]; //afer the csrf hidden input so 1
 
 let allowedFileType = [
 	"text/plain",

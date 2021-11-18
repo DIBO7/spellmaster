@@ -75,7 +75,8 @@
 
 			<section class="window">
 				<div class="inserter">
-					<form>
+					<form enctype="multipart/form-data" method="post">
+						{% csrf_token %}
 						<input type="file" name="document-to-read" accept=".txt" class="custom-file-input" id="doc-input" />
 						<button type="submit" class="inactive" disabled="true">PROCEED</button>
 					</form>				
