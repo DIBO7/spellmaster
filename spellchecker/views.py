@@ -30,6 +30,7 @@ def MainPageViews(request):
 		print("starts")
 		for lines in file:
 			print(lines)
-
+		file = None #this is necessary to avoid File-In-Use-Error. this serves as a close logic (it closes the file)
+		fs.delete(filename)
 
 	return render(request, "mainpage.html", {})
