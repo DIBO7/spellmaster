@@ -16,7 +16,7 @@ Including another URLconf
 #from django.contrib import admin #not needed
 from django.urls import path
 
-from spellchecker.views import MainPageViews
+from spellchecking.views import MainPageViews
 
 urlpatterns = [
     #path('admin/', admin.site.urls), #not needed for this project
