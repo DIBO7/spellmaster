@@ -64,3 +64,5 @@ a{text-decoration: none;}
 .point{cursor: pointer;}
 
 .centerer{text-align: center;}
+
+.error-message{color: var(--bright);}

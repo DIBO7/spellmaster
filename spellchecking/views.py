@@ -2,31 +2,9 @@ from django.shortcuts import render
 #from django.core.files import File
 from django.core.files.storage import FileSystemStorage
 
+from spellchecker import SpellChecker
 # Create your views here.
 
-def read_a_txt_file(file):
-	list_of_lines = []
-	with open(str(file), "r") as f:
-		for lines in f:
-			list_of_lines.append(f)
-	'''
-		fs = FileSystemStorage()
-		filename = fs.save(document.name, document)
-		#fs.url(filename) => the url to the file
-		#print(read_a_txt_file(fs.url(filename)))
-
-		file = fs.open(filename, "r")
-		print("starts")
-		for lines in file:
-			print(lines)
-		file = None #this is necessary to avoid File-In-Use-Error. this serves as a closing system (it closes the file)
-		fs.delete(filename)
-	'''
-
-	return list_of_lines
-	
-
-from spellchecker import SpellChecker
 
 spellcheckmaster = SpellChecker(distance=2, language="en")
 
@@ -36,7 +14,7 @@ def run_spellcheck(list_of_lines_list):
 	line_counter = 1
 	for lines in list_of_lines_list:
 		#lines is a list of each word (strings) in one line
-		result.append(one_line_spellcheck(lines, line_counter))
+		result += one_line_spellcheck(lines, line_counter)
 		line_counter += 1
 	return result
 
@@ -44,12 +22,21 @@ def one_line_spellcheck(one_line, line_number=1):
 	result = []
 	wrong_words = spellcheckmaster.unknown(one_line)#find the wrong words..and we will correct them instead
 	for words in wrong_words:
-		result.append("{} in {} is wrong parhaps you mean {}".format(words, line_number, spellcheckmaster.correction(words)))
+		suggestion = spellcheckmaster.correction(words)
+
+		if suggestion != words:
+			result.append('"{}" in line {} is spelled incorrectly, parhaps you mean "{}"'.format(words, line_number, suggestion))
+			#this is because the corrections are sometimes the same as the wrong words
+		else:
+			result.append('"{}" in line {} is spelled incorrectly.'.format(words.upper(), line_number))
 	return result
 
 
 def MainPageViews(request):
 	#request.GET.get("document-to-read")
+
+	checked_file_per_line = []
+	document = False
 
 	if request.method=="POST" and request.FILES["document-to-read"]:
 		document = request.FILES["document-to-read"]
@@ -71,15 +58,22 @@ def MainPageViews(request):
 			for line in lines: #line represent one line in the document
 				each_word_on_a_line.append(line.replace("\r", "").split())
 				#each_word_on_a_line -> a list of every word (as a string) in a particular line within the document
+				'''
+				There is a problem with '.splt()' here. The words are seperated at 'spaces only'. This must expand to separete at coma, brackets, fullstop, exclamation
+				or atleast those things should be stripped out too.
+				'''
 
 			file_per_line = each_word_on_a_line #or file_per_line.append(...) instead!
 			#remove '\r' and set whatever is left to "file_per_line"; thisw way I can work with file_per_line outside the for-loop
 
 
 			#NB: looping through text.decode() returns a string
-		corrected_file_per_line = run_spellcheck(file_per_line)
-		print(file_per_line)
-		print("---------CORRECTION 1-----------")
-		print(corrected_file_per_line)
+		checked_file_per_line = run_spellcheck(file_per_line)
+		#just incase no spelling mistake is found!
+		if len(checked_file_per_line) < 1:
+			checked_file_per_line = ["no spelling mistake spotted!!"]
+		else:
+			checked_file_per_line.append("{} spelling mistakes spotted!!".format(len(checked_file_per_line)))
+
 		
-	return render(request, "mainpage.html", {})
+	return render(request, "mainpage.html", {"reports":checked_file_per_line, "name":document})

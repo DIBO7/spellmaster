@@ -84,7 +84,13 @@
 
 				<div id="report-wrapper">
 					<!--All text coming/reporting back from the server goes in here-->
-					<span>...Project under development...</span>
+					<span>...only reads .txt files for now. Project still under development...</span>
+					{% if name %} <br/> <span>{{name}} is readable.<br />..scanning for spelling errors...please hold!</span> {% endif %}
+
+					{% for r in reports %}
+						<br /> <span class="error-message">{{r}}</span>
+					{% endfor %}
+
 				</div>
 
 				<div class="centerer">

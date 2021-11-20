@@ -14,7 +14,7 @@ header h1{
 
 span.label{font-size: .8rem; font-weight: 700; display: flex; justify-content: center; letter-spacing: .14rem; text-transform: uppercase; color: var(--dark-primary);}
 
-span{font-size: .9rem; letter-spacing: .12rem; text-transform: capitalize; color: var(--text);}
+span{font-size: .9rem; letter-spacing: .12rem; color: var(--text);}
 
 span.active, span:hover{background-color: var(--dark-primary); color: var(--plain)}
 /*to prevent 'span.label' from having any hover effect */
