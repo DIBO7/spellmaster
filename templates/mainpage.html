@@ -85,10 +85,11 @@
 				<div id="report-wrapper">
 					<!--All text coming/reporting back from the server goes in here-->
 					<span>...only reads .txt files for now. Project still under development...</span>
-					{% if name %} <br/> <span>{{name}} is readable.<br />..scanning for spelling errors...please hold!</span> {% endif %}
+					{% if doc %} <br/> <span>{{doc}} is readable. </span> <br /> <span> ...scanning {{doc}} for spelling errors...please hold!...</span> 
+					<br /> <span class="heavy {{css}} "> {{remark}} </span> {% endif %}
 
 					{% for r in reports %}
-						<br /> <span class="error-message">{{r}}</span>
+						<br /> <span class="{{css}}">{{r}}</span>
 					{% endfor %}
 
 				</div>

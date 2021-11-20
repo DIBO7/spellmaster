@@ -66,3 +66,5 @@ a{text-decoration: none;}
 .centerer{text-align: center;}
 
 .error-message{color: var(--bright);}
+.good-message{color: var(--dark-primary);}
+.heavy{font-weight: bold;}
