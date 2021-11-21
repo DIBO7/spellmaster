@@ -1,3 +1,4 @@
+import time #using this to calculate the processing speed
 from django.shortcuts import render
 #from django.core.files import File
 from django.core.files.storage import FileSystemStorage
@@ -35,6 +36,8 @@ def one_line_spellcheck(one_line, line_number=1):
 unwanted_characters = ["?", "!", '"', "(", ")", ",", ".", "/", "\r", "\t", ":", ";"] #"." is problematic because file may contain .net or .com or .somethingelse...
 #may use reges to fix that...BUT GOD, WE MUST AVOID REGEX for as long as we can...
 
+#or parhaps "." and ":" may be replaced with spaces (" ") instead of ""
+
 def strip_unwanted_txt_character(sentence):
 	#removes unwanted characters that may be attched to the word and render it incorrect
 	for char in unwanted_characters:
@@ -47,14 +50,14 @@ def strip_unwanted_txt_character(sentence):
 
 
 def MainPageViews(request):
-	#request.GET.get("document-to-read")
-
+	#request.GET.get("document-to-read")	
 	checked_file_per_line = []
 	document = False
 	status_class = "error-message" #for css purposes, could be "error-message" or "good-message" (at the time of writing)
 	check_remarks = ""
 
 	if request.method=="POST" and request.FILES["document-to-read"]:
+		process_start_time = time.time()
 		document = request.FILES["document-to-read"]
 
 		chunk_of_file = document.chunks() #.chunks() breakdown large files onto chunks and read them; to avoid overwhelming the memory.
@@ -65,14 +68,16 @@ def MainPageViews(request):
 		for text in chunk_of_file:
 			#chunk_of_file here is the entire document (or a fraction of it) in a "b string"
 
-			lines = text.decode().split("\n") #split on newlines #we do 
+			lines = strip_unwanted_txt_character(text.decode()).split("\n")
+			#text.decode().split("\n") #split on newlines #we do 
 			#lines is a list ot the chunked_document, line by line (with '\r' probably in them)
+			#remove the unwanted characters first and strip on newlines #this seems to be faster but by very little amount that it is almost not noticeable
 
 			each_word_on_a_line = []
 
 			#to remove the '\r' then;
 			for line in lines: #line represent one line in the document
-				each_word_on_a_line.append(strip_unwanted_txt_character(line).split())
+				each_word_on_a_line.append(line.split())
 				#each_word_on_a_line -> a list of every word (as a string) in a particular line within the document				
 
 			file_per_line = each_word_on_a_line #or file_per_line.append(...) instead!
@@ -89,5 +94,6 @@ def MainPageViews(request):
 			check_remarks = "{} spelling mistakes spotted!!".format(len(checked_file_per_line))
 			#I did it like this instead of using .append() because I want this text to come first! so it has to be ontop
 
+		print("This process takes %s seconds to complete" % (time.time() - process_start_time))
 		
 	return render(request, "mainpage.html", {"reports":checked_file_per_line, "doc":document, "remark": check_remarks, "css":status_class})
