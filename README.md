@@ -4,6 +4,11 @@ The spellmaster project is an open source python project (built with python and 
 
 **NOTE: The 'main' branch automatically deploys to heroku (and heroku collects static i.e runs `python manage.py collectstatic` on every deploy)** So working and testing within a new/another branch is adviced.
 
+---
+website: https://spellmaster.herokuapp.com
+
+---
+
 
 ## Languages
 1. Python
