@@ -1,6 +1,9 @@
 # SPELLMASTER PROJECT
 
-The spellmaster project is an open source python project (built with python and django) to create a bot that quickly read through documents and webpages to find (and ofcourse, report) __mispelled words__. It will also have the capability to quicly rewrite (in a downloadable copy) the document (or webpage) with the right spelling. This Project is hosted [here on heroku](https://spellmaster.herokuapp.com). It is also currently under development. 
+The spellmaster project is an open source python project (built with python and django) to create a bot on the web that reads through documents and webpages to find (and ofcourse, report) __mispelled words__. It will also have the capability to rewrite (in a downloadable copy) the document (or webpage) with the right spelling. This Project is hosted [here on heroku](https://spellmaster.herokuapp.com). It currently finds spelling errors in `*.txt` files for now and development is still in progress. 
+
+**NOTE: The 'main' branch automatically deploys to heroku (and heroku collects static i.e runs `python manage.py collectstatic` on every deploy)** So working and testing within a new/another branch is adviced.
+
 
 ## Languages
 1. Python
@@ -23,7 +26,6 @@ __NOTE: This project requires no database. So ignore all django's message regard
 * .md files (parhaps)
 * .pdf files (yes, thats right!)
 
-**NOTE: The 'main' branch automatically deploys to heroku. So working and testing within a new/another branch is adviced.**
 
 ---
 Here is the mockup of the main page (open to changes though!)
