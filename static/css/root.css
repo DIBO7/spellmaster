@@ -38,19 +38,24 @@ button{
   border: 2px solid transparent;
 }
 
-button:hover{
+button:hover, button:focus{
   background-color: transparent;
   border: 2px solid var(--dark-primary);
   color: var(--dark-primary);
 }
 
-button.inactive{
-  background-color: transparent;
-  border: 2px solid var(--text);
-  color: var(--text);
-  cursor: not-allowed;
+button:focus{
+  /*to let user know the submit button is on focus!*/
+  border-radius: 5px; 
 }
 
+.inactive, button:disabled{
+  background-color: transparent !important;
+  color: var(--text) !important;
+  cursor: not-allowed !important;
+}
+
+button.inactive, button:disabled{border: 2px solid var(--text) !important;}
 
 a{text-decoration: none;}
 
@@ -59,3 +64,7 @@ a{text-decoration: none;}
 .point{cursor: pointer;}
 
 .centerer{text-align: center;}
+
+.error-message{color: var(--bright);}
+.good-message{color: var(--dark-primary);}
+.heavy{font-weight: bold;}

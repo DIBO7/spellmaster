@@ -47,7 +47,7 @@
 
 						<div class="one-control">
 							<!--<img src="" alt="" />-->
-							<span class="airpad point">Webpage</span>
+							<span class="airpad point inactive">Webpage</span>
 						</div>
 
 					</div>
@@ -57,14 +57,14 @@
 				<div class="key-aspect">
 					<span class="label">LANGUAGE</span>					
 					<div class="span-choice lang-wrapper flexible">
-						<div class="one-control">
+						<div class="one-control active">
 							<!--<img src="" alt="" />-->
-							<span class="airpad point">American</span>
+							<span class="airpad point inactive">American</span>
 						</div>
 
 						<div class="one-control active">
 							<!--<img src="" alt="" />-->
-							<span class="airpad active point">British</span>
+							<span class="airpad active point inactive">British</span>
 						</div>
 
 					</div>
@@ -75,15 +75,23 @@
 
 			<section class="window">
 				<div class="inserter">
-					<form>
-						<input type="file" name="filesrc" placeholder="no file selected" class="custom-file-input" />
-						<button type="submit" class="inactive">Browse</button>
+					<form enctype="multipart/form-data" method="post">
+						{% csrf_token %}
+						<input type="file" name="document-to-read" accept=".txt" class="custom-file-input" id="doc-input" />
+						<button type="submit" class="inactive" disabled="true">PROCEED</button>
 					</form>				
 				</div>
 
 				<div id="report-wrapper">
 					<!--All text coming/reporting back from the server goes in here-->
-					<span>...Project under development...</span>
+					<span>...only reads .txt files for now. Project still under development...</span>
+					{% if doc %} <br/> <span>{{doc}} is readable. </span> <br /> <span> ...scanning {{doc}} for spelling errors...please hold!...</span> 
+					<br /> <span class="heavy {{css}} "> {{remark}} </span> {% endif %}
+
+					{% for r in reports %}
+						<br /> <span class="{{css}}">{{r}}</span>
+					{% endfor %}
+
 				</div>
 
 				<div class="centerer">
@@ -111,6 +119,6 @@
 
 	</section>
 
-
+<script type="text/javascript" src="{% static 'js/event_managers.js' %}"></script>
 </body>
 </html>
