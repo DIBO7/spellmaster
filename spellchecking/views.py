@@ -8,6 +8,9 @@ from spellchecker import SpellChecker
 
 
 spellcheckmaster = SpellChecker(distance=2, language="en")
+spellcheckmaster.word_frequency.load_words(["s", "http", "https", "html", "css", "javascript", "100%"]) 
+#.load_text("a string"), .load_text_file("./path_to_file.txt"), .load_dictionary("./path_to_file.json") OR .add("a single word"), .remove("a word from the dic")
+#list of words that should NOT be flagged as incorrect. List will grow larger
 
 def run_spellcheck(list_of_lines_list):
 	result = []
@@ -21,7 +24,7 @@ def run_spellcheck(list_of_lines_list):
 
 def one_line_spellcheck(one_line, line_number=1):
 	result = []
-	wrong_words = spellcheckmaster.unknown(one_line)#find the wrong words..and we will correct them instead
+	wrong_words = spellcheckmaster.unknown(one_line)#find the wrong words..and we will correct them
 	for words in wrong_words:
 		suggestion = spellcheckmaster.correction(words)
 
@@ -29,20 +32,21 @@ def one_line_spellcheck(one_line, line_number=1):
 			result.append('"{}" in line {} is spelled incorrectly, parhaps you mean "{}"'.format(words, line_number, suggestion))
 			#this is because the corrections are sometimes the same as the wrong words
 		else:
-			result.append('"{}" in line {} is spelled incorrectly.'.format(words.upper(), line_number))
+			result.append('"{}" in line {} seems to be spelled incorrectly.'.format(words.upper(), line_number))
 	return result
 
 
-unwanted_characters = ["?", "!", '"', "(", ")", ",", ".", "/", "\r", "\t", ":", ";"] #"." is problematic because file may contain .net or .com or .somethingelse...
+unwanted_characters = ["?", "!", '"', "(", ")", ",", ".", "/", "\r", "\t", ":", ";", "-", "_", "'"] 
+#"." is problematic because file may contain .net or .com or .somethingelse..."'" is also problematic beacuse of "isn't"
 #may use reges to fix that...BUT GOD, WE MUST AVOID REGEX for as long as we can...
-
 #or parhaps "." and ":" may be replaced with spaces (" ") instead of ""
 
 def strip_unwanted_txt_character(sentence):
 	#removes unwanted characters that may be attched to the word and render it incorrect
 	for char in unwanted_characters:
 		if char in sentence:
-			sentence = sentence.replace(char, "")
+			sentence = sentence.replace(char, " ")
+			#replace with a space instaed, so "facebook.com" can be spell checked as "facebook" and "com" and NOT "facebookcom"
 		else:
 			pass
 
@@ -87,13 +91,15 @@ def MainPageViews(request):
 			#NB: looping through text.decode() returns a string
 		checked_file_per_line = run_spellcheck(file_per_line)
 		#just incase no spelling mistake is found!
+
+		process_time_duration = time.time() - process_start_time
+
 		if len(checked_file_per_line) < 1:
-			check_remarks = ["no spelling mistake spotted!! Congrats, Your file is clean!!"]
+			check_remarks = "no spelling mistake spotted. Your file is error-free and the reading took {} seconds".format(round(process_time_duration, 4))
 			status_class = "good-message"
 		else:
-			check_remarks = "{} spelling mistakes spotted!!".format(len(checked_file_per_line))
+			check_remarks = "{} spelling mistakes spotted in {} seconds!!".format(len(checked_file_per_line), round(process_time_duration, 4))
 			#I did it like this instead of using .append() because I want this text to come first! so it has to be ontop
 
-		print("This process takes %s seconds to complete" % (time.time() - process_start_time))
 		
 	return render(request, "mainpage.html", {"reports":checked_file_per_line, "doc":document, "remark": check_remarks, "css":status_class})
