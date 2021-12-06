@@ -27,7 +27,7 @@
 	<section class="content">
 		<div class="board"> <!--Not sure if I should use a div wrapper-->
 			<p>
-				The 'spellmaster' project is an open-source python project developed to read documents of various kinds (including webpages and pdfs) to check for and point out all mispelled words. It also will have the ability to rewrite the exact document (in a downloadable copy) but with the right spelling after reading it. NOTE: IT IS CURRENTLY UNDER DEVELOPMENT!
+				The 'spellmaster' project is an open-source python project developed to read documents of various formats (including webpages and pdfs) to check for and point out all mispelled words. It also will have the ability to rewrite the exact document (in a downloadable copy) but with the right spelling after reading it. NOTE: IT IS CURRENTLY UNDER DEVELOPMENT!
 			</p>
 		</div>
 
@@ -77,7 +77,7 @@
 				<div class="inserter">
 					<form enctype="multipart/form-data" method="post">
 						{% csrf_token %}
-						<input type="file" name="document-to-read" accept=".txt" class="custom-file-input" id="doc-input" />
+						<input type="file" name="document-to-read" accept=".txt,.pdf" class="custom-file-input" id="doc-input" />
 						<button type="submit" class="inactive" disabled="true">PROCEED</button>
 					</form>				
 				</div>

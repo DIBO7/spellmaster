@@ -4,6 +4,7 @@ let fileInput = fileForm.getElementsByTagName('input')[1]; //afer the csrf hidde
 
 let allowedFileType = [
 	"text/plain",
+	"application/pdf"
 ]
 
 let outputArea = document.getElementById('report-wrapper');
