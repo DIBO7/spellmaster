@@ -1,33 +1,30 @@
 #import base64
 #print(base64.a85decode(chunk).decode('utf-8')) #chuck is the chunk of file to be read!
 import PyPDF2
-from io import StringIO
+from scope.pdf_tools import convert_pdf_to_string
+from scope.word_editor import strip_unwanted_txt_character
+from scope.spelling_tools import run_spellcheck
 
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
-from pdfminer.pdfdocument import PDFDocument
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfparser import PDFParser
+
 
 
 def Read_Pdf_File(document):
 
-	output_string = StringIO()
+	#reader = PyPDF2.PdfFileReader(document)
+	#reader_on_page = 0
+	#while reader_on_page < reader.numPages:
+	pdf_stringed_text = strip_unwanted_txt_character(convert_pdf_to_string(document))
+	#pdf_stringed_text.split("\n") #this is a list with lines_of_sentences in it
+	line_list_of_wordlist = []
 
-	with document.open("rb") as doc:
-		parser = PDFParser(doc)
-		the_doc = PDFDocument(parser)
-		rsrcmgr = PDFResourceManager()
-		device = TextConverter(rsrcmgr, output_string, laparams=LAParams())
-		interpreter = PDFPageInterpreter(rsrcmgr, device)
-		for page in PDFPage.create_pages(the_doc):
-			interpreter.process_page(page)
-	
-	print(output_string)
-	#print(output_string.getvalue())
+	for every_line in pdf_stringed_text.split("\n"):
+		words_on_each_line = every_line.split() #a list of words on every_line
+		line_list_of_wordlist.append(words_on_each_line)
 
-	return [["This is a pdf file so I would read this differently"]]
+	analysis = run_spellcheck(line_list_of_wordlist)
+
+
+	return analysis
 
 '''
 pdf_reader = PyPDF2.PdfFileReader(doc)
